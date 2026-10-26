@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7-тапсырма: Қай материал суды жақсы сіңіреді?</title>
+<style>
+:root{--ink:#183153;--muted:#53657d;--blue:#2f80ed;--cyan:#56ccf2;--mint:#b8f2e6;--yellow:#ffe082;--pink:#ffd6e7;--paper:#ffffff}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#dff6ff,#f4e8ff 52%,#fff3d6);min-height:100vh;padding:18px}
+main{max-width:850px;margin:auto}.hero{background:linear-gradient(120deg,#246bce,#57c7e8);color:white;padding:26px;border-radius:25px;box-shadow:0 12px 30px #2456a326}
+.kicker{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;opacity:.9}.hero h1{font-size:clamp(1.65rem,5vw,2.6rem);line-height:1.12;margin:10px 0}.hero p{margin:8px 0 0;line-height:1.55}
+.panel{background:#ffffffed;margin-top:16px;padding:22px;border-radius:22px;box-shadow:0 8px 22px #24476c12}.panel h2{margin:0 0 10px;font-size:1.25rem}.sub{color:var(--muted);line-height:1.5}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{background:#fff;color:#24517e;padding:8px 12px;border-radius:999px;font-size:.9rem;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin-top:14px}.choice{border:2px solid #dbe7f4;background:#f9fcff;border-radius:16px;padding:14px;text-align:left;color:var(--ink);cursor:pointer;font:inherit;transition:.15s;min-height:82px}.choice:hover{transform:translateY(-2px);border-color:var(--blue)}.choice.selected{border-color:var(--blue);background:#e8f3ff;box-shadow:0 0 0 3px #2f80ed1b}.emoji{font-size:1.7rem;display:block;margin-bottom:5px}.feedback{display:none;margin-top:12px;padding:12px 14px;border-radius:13px;line-height:1.5}.feedback.show{display:block}.good{background:#e0f7e9;color:#17643a}.hint{background:#fff2cf;color:#714c00}.tasknum{display:inline-grid;place-items:center;background:var(--yellow);color:#694f00;border-radius:10px;width:32px;height:32px;font-weight:900;margin-right:8px}
+button.action{border:0;border-radius:13px;background:#245fce;color:white;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;margin-top:10px}button.secondary{background:#e8effa;color:#23466e}.field{width:100%;padding:13px;border:2px solid #dbe7f4;border-radius:13px;font:inherit;margin-top:8px}.result{font-size:1.05rem;font-weight:750;line-height:1.5}.bar{height:10px;background:#e8eff7;border-radius:999px;overflow:hidden;margin:12px 0}.bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#43b581,#56ccf2);transition:width .3s}.small{font-size:.9rem;color:var(--muted)}footer{text-align:center;color:#526780;font-size:.85rem;padding:18px}
+@media(max-width:520px){body{padding:10px}.hero,.panel{padding:18px;border-radius:18px}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+ <div class="kicker">🔬 7-тапсырма · Интерактивті зерттеу</div>
+ <h1>Қай материал суды жақсы сіңіреді?</h1>
+ <p>Кішкентай зерттеуші бол! Болжам жаса, тәжірибені жоспарла, нәтижені салыстыр. Әр қадамды басып, өз жауабыңды таңда.</p>
+ <div class="chips"><span class="chip">💧 Су</span><span class="chip">🧪 Тәжірибе</span><span class="chip">🧠 Ойлан!</span></div>
+</section>
+
+<section class="panel">
+ <h2><span class="tasknum">1</span>Зерттеу болжамы</h2>
+ <p class="sub">Қай материал суды көбірек сіңіреді деп ойлайсың? Алдымен өз болжамыңды таңда.</p>
+ <div class="grid" data-group="guess">
+  <button class="choice" data-value="Мақта"><span class="emoji">☁️</span>Мақта</button>
+  <button class="choice" data-value="Қағаз сүлгі"><span class="emoji">🧻</span>Қағаз сүлгі</button>
+  <button class="choice" data-value="Мата"><span class="emoji">🧵</span>Мата</button>
+  <button class="choice" data-value="Полиэтилен"><span class="emoji">🛍️</span>Полиэтилен пакет</button>
+ </div>
+ <div class="feedback" id="guessFeedback"></div>
+</section>
+
+<section class="panel">
+ <h2><span class="tasknum">2</span>Тәжірибені жоспарла</h2>
+ <p class="sub">Әділ тәжірибе жасау үшін нені бірдей ұстау керек? Бірнеше жауапты таңдауға болады.</p>
+ <div class="grid" data-group="fair">
+  <button class="choice" data-value="өлшем"><span class="emoji">📏</span>Материал бөліктерінің өлшемі</button>
+  <button class="choice" data-value="су"><span class="emoji">💧</span>Судың мөлшері</button>
+  <button class="choice" data-value="уақыт"><span class="emoji">⏱️</span>Суға салу уақыты</button>
+  <button class="choice" data-value="түсі"><span class="emoji">🎨</span>Материалдың түсі ғана</button>
+ </div>
+ <button class="action" id="checkFair">Жауапты тексеру</button>
+ <div class="feedback" id="fairFeedback"></div>
+</section>
+
+<section class="panel">
+ <h2><span class="tasknum">3</span>Қадамдарды дұрыс ретке келтір</h2>
+ <p class="sub">Әр батырманы дұрыс реттілікпен бас: 1-ден 4-ке дейін.</p>
+ <div class="grid" id="steps">
+  <button class="choice" data-step="3"><span class="emoji">📝</span>Нәтижені жазу</button>
+  <button class="choice" data-step="1"><span class="emoji">🧰</span>Материалдарды дайындау</button>
+  <button class="choice" data-step="4"><span class="emoji">📊</span>Нәтижелерді салыстыру</button>
+  <button class="choice" data-step="2"><span class="emoji">💦</span>Әр материалға бірдей су тамызу</button>
+ </div>
+ <p class="small" id="stepStatus">Таңдалған қадамдар: 0/4</p>
+ <div class="feedback" id="stepFeedback"></div>
+</section>
+
+<section class="panel">
+ <h2><span class="tasknum">4</span>Нәтижені болжа</h2>
+ <p class="sub">Көп жағдайда суды жақсы сіңіретін материалды таңда. Нақты нәтиже материалдың түрі мен қалыңдығына байланысты болуы мүмкін.</p>
+ <div class="grid" data-group="result">
+  <button class="choice" data-value="мақта"><span class="emoji">☁️</span>Мақта немесе қағаз сүлгі</button>
+  <button class="choice" data-value="пакет"><span class="emoji">🛍️</span>Полиэтилен пакет</button>
+  <button class="choice" data-value="әйнек"><span class="emoji">🪟</span>Әйнек</button>
+ </div>
+ <div class="feedback" id="resultFeedback"></div>
+</section>
+
+<section class="panel">
+ <h2><span class="tasknum">5</span>Зерттеуші қорытындысы</h2>
+ <p class="sub">Өз ойыңды жаз: қай материалды таңдар едің және неге?</p>
+ <textarea class="field" id="conclusion" rows="3" placeholder="Менің ойымша, ... суды жақсы сіңіреді, себебі ..."></textarea>
+ <button class="action" id="finish">Қорытындыны аяқтау ✨</button>
+ <button class="action secondary" id="reset">Қайта бастау ↻</button>
+ <div class="bar"><span id="progress"></span></div>
+ <div class="result" id="finalResult" aria-live="polite">Тапсырмаларды орындап, зерттеуші ұпайларын жина!</div>
+</section>
+<footer>💡 Есіңде болсын: болжамды тәжірибе арқылы тексереміз. Тәжірибеде судың мөлшерін бірдей ұста!</footer>
+</main>
+<script>
+const selections={guess:null,fair:new Set(),result:null};let steps=[];
+function choose(button){const group=button.closest('[data-group]');if(!group)return;const name=group.dataset.group;
+ if(name==='fair'){const v=button.dataset.value;if(selections.fair.has(v)){selections.fair.delete(v);button.classList.remove('selected')}else{selections.fair.add(v);button.classList.add('selected')}return}
+ group.querySelectorAll('.choice').forEach(b=>b.classList.remove('selected'));button.classList.add('selected');selections[name]=button.dataset.value;
+ if(name==='guess'){const f=document.getElementById('guessFeedback');f.className='feedback show hint';f.textContent='Жақсы! Бұл — сенің бастапқы болжамың. Енді тәжірибе жасап, оның дұрыс-бұрыстығын тексеруге болады.'}
+ if(name==='result'){const f=document.getElementById('resultFeedback');f.className='feedback show '+(button.dataset.value==='мақта'?'good':'hint');f.textContent=button.dataset.value==='мақта'?'Дұрыс бағыт! Мақта мен қағаз сүлгі суды сіңіреді. Қайсысы көбірек сіңіретінін тәжірибе көрсетеді.':'Ойланып көр: полиэтилен мен әйнек суды әдетте сіңірмейді, су олардың бетінде қалады.'}
+}
+document.querySelectorAll('[data-group] .choice').forEach(b=>b.addEventListener('click',()=>choose(b)));
+document.getElementById('checkFair').addEventListener('click',()=>{const f=document.getElementById('fairFeedback');const expected=['өлшем','су','уақыт'];const ok=expected.every(v=>selections.fair.has(v))&&!selections.fair.has('түсі');f.className='feedback show '+(ok?'good':'hint');f.textContent=ok?'Жарайсың! Өлшем, су мөлшері және уақыт бірдей болса, нәтижені әділ салыстыруға болады.':'Материал өлшемін, су мөлшерін және уақытты бірдей ұста. Тек түстің бірдей болуы жеткіліксіз.'});
+document.querySelectorAll('#steps .choice').forEach(b=>b.addEventListener('click',()=>{if(b.classList.contains('selected'))return;b.classList.add('selected');steps.push(Number(b.dataset.step));document.getElementById('stepStatus').textContent='Таңдалған қадамдар: '+steps.length+'/4';if(steps.length===4){const ok=steps.every((v,i)=>v===i+1);const f=document.getElementById('stepFeedback');f.className='feedback show '+(ok?'good':'hint');f.textContent=ok?'Керемет! Реті дұрыс.':'Қайта реттеп көр: алдымен дайында, кейін су тамыз, нәтижені жаз, соңында салыстыр.'}}));
+document.getElementById('finish').addEventListener('click',()=>{let score=0;if(selections.guess)score++;if(['өлшем','су','уақыт'].every(v=>selections.fair.has(v))&&!selections.fair.has('түсі'))score++;if(steps.length===4&&steps.every((v,i)=>v===i+1))score++;if(selections.result==='мақта')score++;const c=document.getElementById('conclusion').value.trim();if(c.length>12)score++;document.getElementById('progress').style.width=(score/5*100)+'%';document.getElementById('finalResult').textContent='Сенің нәтижең: '+score+'/5 ұпай. '+(score>=4?'Тамаша зерттеуші! 💧':'Жақсы бастама! Жауаптарды тексеріп, қорытындыңды толықтыр.');if(!c)document.getElementById('finalResult').textContent+=' Қорытынды жазуды ұмытпа.'});
+document.getElementById('reset').addEventListener('click',()=>{location.reload()});
+</script>
+</body>
+</html>
